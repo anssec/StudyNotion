@@ -36,16 +36,38 @@ exports.sendOTP = async (req, res) => {
         lowerCaseAlphabets: false,
         specialChars: false,
       });
-    }
+      result=await OTP.findOne({otp: otp});
+    };
+    const otpPayload={email,otp};
 
+    // create entry for otp 
+
+    const otpBody=await OTP.create(otpPayload);
+
+    // return response successfull 
+    res.status(200).json({
+      success:true,
+      message:'OTP send successfull',
+    });
     
   } catch (error) {
-
-  }
+    console.log(error)
+    res.status(500).json({
+      success:false,
+      message:error.message,
+    })
+  };
 };
 
 //sign up
-
+ 
+exports.signUp=async(req,res){
+  try {
+    
+  } catch (error) {
+    
+  }
+};
 //log in
 
 //changePassword
