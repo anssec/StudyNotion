@@ -82,13 +82,36 @@ exports.createCourse = async (req, res) => {
     return res.status(200).json({
       success: true,
       message: "Course Created Successfully",
+      data: newCourse,
     });
   } catch (error) {
     res.status(500).json({
       success: false,
-      message: error.message,
+      message: 'Failed to create course',
+      error:error.message,
     });
   }
 };
 
 //getAllCourse handler function
+exports.getAllCourse=async(req,res)=>{
+    try {
+        const allCourse=await Course.find({},
+            {
+                courseName:true,
+                price:true,
+                thumbnail:true,
+                instructor:true,
+                ratingAndReviews:true,
+                studentsEnrolled:true,
+
+            });
+            
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            message: 'Cannot fetch course data',
+            error:error.message,
+          });
+    }
+}
