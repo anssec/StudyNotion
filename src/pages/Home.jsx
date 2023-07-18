@@ -46,9 +46,31 @@ const Home = () => {
         </video>
       </div>
 
-        {/* code section 1 */}
+      {/* code section 1 */}
       <div>
-        <CodeBlocks/>
+        <CodeBlocks
+          position={"lg:flex-row"}
+          heading={
+            <div className=" font-3xl font-semibold">
+              Unlock Your
+              <HighLightText text={"coding potential"} />
+              with our online courses
+            </div>
+          }
+          subheading={
+            "Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you."
+          }
+          ctabtn1={{
+            btnText: "try it yourself",
+            linkto: "/signup",
+            active: true,
+          }}
+          ctabtn2={{
+            btnText: "learn more",
+            linkto: "/login",
+            active: false,
+          }}
+        />
       </div>
       {/* section 2 */}
 
