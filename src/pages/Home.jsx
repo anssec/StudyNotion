@@ -51,10 +51,10 @@ const Home = () => {
         <CodeBlocks
           position={"lg:flex-row"}
           heading={
-            <div className=" font-3xl font-semibold">
+            <div className="text-4xl font-semibold">
               Unlock Your
               <HighLightText text={"coding potential"} />
-              with our online courses
+              {" "}with our online courses
             </div>
           }
           subheading={
@@ -70,6 +70,20 @@ const Home = () => {
             linkto: "/login",
             active: false,
           }}
+
+          codeblock={
+            `<!DOCTYPE html>
+            <html>
+            <head>
+            <title>Example</title>
+            <linkrel="stylesheet"href="styles.css">
+            </head>
+            <body>
+            <h1>
+            <ahref="/">Header</a>
+            </h1>
+            <nav><ahref="one/">One</a><ahref="two/">Two</a><ahref="three/">Three</a></nav>`
+          }
         />
       </div>
       {/* section 2 */}
