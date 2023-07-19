@@ -49,7 +49,7 @@ const Home = () => {
       {/* code section 1 */}
       <div>
         <CodeBlocks
-          position={"lg:flex-row"}
+          position={"lg:flex-row "}
           heading={
             <div className="text-4xl font-semibold">
               Unlock Your
@@ -72,17 +72,38 @@ const Home = () => {
           }}
 
           codeblock={
-            `<!DOCTYPE html>
-            <html>
-            <head>
-            <title>Example</title>
-            <linkrel="stylesheet"href="styles.css">
-            </head>
-            <body>
-            <h1>
-            <ahref="/">Header</a>
-            </h1>
-            <nav><ahref="one/">One</a><ahref="two/">Two</a><ahref="three/">Three</a></nav>`
+            `<!DOCTYPE html>\n<html>\nhead><title>Example</\ntitle><linkrel="stylesheet"href="styles.css">\n/head>\nbody>\nh1><ahref="/">Header</a>\n/h1>\nnav><ahref="one/">One</a><ahref="two/">Two</\na><ahref="three/">Three</a>\n/nav>`
+          }
+        />
+      </div>
+
+      {/* code section 2 */}
+      <div>
+        <CodeBlocks
+          position={"lg:flex-row-reverse "}
+          heading={
+            <div className="text-4xl font-semibold">
+              Unlock Your
+              <HighLightText text={"coding potential"} />
+              {" "}with our online courses
+            </div>
+          }
+          subheading={
+            "Our courses are designed and taught by industry experts who have years of experience in coding and are passionate about sharing their knowledge with you."
+          }
+          ctabtn1={{
+            btnText: "try it yourself",
+            linkto: "/signup",
+            active: true,
+          }}
+          ctabtn2={{
+            btnText: "learn more",
+            linkto: "/login",
+            active: false,
+          }}
+
+          codeblock={
+            `<!DOCTYPE html>\n<html>\nhead><title>Example</\ntitle><linkrel="stylesheet"href="styles.css">\n/head>\nbody>\nh1><ahref="/">Header</a>\n/h1>\nnav><ahref="one/">One</a><ahref="two/">Two</\na><ahref="three/">Three</a>\n/nav>`
           }
         />
       </div>

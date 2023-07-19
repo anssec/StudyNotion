@@ -35,8 +35,9 @@ const CodeBlocks = ({
         </div>
       </div>
 
+
       {/* section 2 */}
-      <div>
+      <div className="flex h-fit flex-row text-base w-full lg:w-[500px]">
         <div className=" text-center flex flex-col w-[10%] text-richblack-400 font-inter font-bold">
           <p>1</p>
           <p>2</p>
@@ -50,11 +51,20 @@ const CodeBlocks = ({
           <p>10</p>
           <p>11</p>
         </div>
-        <div className={`w-[90%] flex flex-col gap-2 font-bold font-mono ${codeColor}`}>
+        <div className={`w-[90%] flex flex-col gap-2 font-bold font-mono  ${codeColor}`}>
           <TypeAnimation
-           sequence={[codeblock,1000,""]}
-           repeat={Infinity} 
+           sequence={[codeblock,2000,""]}
+           repeat={Infinity}
+           cursor={true}
+            style={
+              {
+                whiteSpace:"pre-line",
+                display:"block",
+              }
+            }
+            omitDeletionAnimation={true}
           
+
           />
         </div>
       </div>
