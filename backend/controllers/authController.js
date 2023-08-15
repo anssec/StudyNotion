@@ -183,8 +183,24 @@ exports.signUp = async (req, res) => {
         expiresIn: "2h",
       });
       user.token = token;
+
+      const options = {
+        expires: new Date(Date.now() + 3 * 24 * 60 * 60 * 1000),
+        httpOnly: true,
+      };
+      //create cookie and send response
+      return res.cookie("token", token, options).status(200).json({
+        success: success,
+        message: `Logged in successfully`,
+        token,
+        user,
+      });
+    } else {
+      return res.status(401).json({
+        success: false,
+        message: `Password is incorrect`,
+      });
     }
-    //create cookie and send response
   } catch (error) {
     return res.status(500).json({
       success: false,
