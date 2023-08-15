@@ -152,6 +152,7 @@ exports.signUp = async (req, res) => {
     });
   }
 };
+
 //login
 exports.signUp = async (req, res) => {
   try {
