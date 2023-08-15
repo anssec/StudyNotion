@@ -3,6 +3,8 @@ const OTP = require("../models/otpModel");
 const Profile = require("../models/profileModel");
 const otpGenerator = require("otp-generator");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 //sendotp
 exports.sendOTP = async (req, res) => {
   try {
@@ -151,5 +153,43 @@ exports.signUp = async (req, res) => {
   }
 };
 //login
-
+exports.signUp = async (req, res) => {
+  try {
+    //get data from req body
+    const { email, password } = req.body;
+    //validation data
+    if (!email || !password) {
+      return res.status(200).json({
+        success: false,
+        message: `All fields are required ,please try again`,
+      });
+    }
+    //user check exist or not
+    const user = await User.findOne({ email }).populate("aditionalDetails");
+    if (!user) {
+      return res.status(401).json({
+        success: false,
+        message: `User is not registered`,
+      });
+    }
+    //generate JWt After password matching
+    if (await bcrypt.compare(password, user.password)) {
+      const payload = {
+        email: user.email,
+        id: user._id,
+        role: user.role,
+      };
+      const token = jwt.sign(payload, process.env.JWT_SECRET, {
+        expiresIn: "2h",
+      });
+      user.token = token;
+    }
+    //create cookie and send response
+  } catch (error) {
+    return res.status(500).json({
+      success: false,
+      message: `Something Went wrong try again later!`,
+    });
+  }
+};
 //changePassword
