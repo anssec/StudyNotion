@@ -210,3 +210,11 @@ exports.signUp = async (req, res) => {
   }
 };
 //changePassword
+exports.changePassword = async (req, res) => {
+  //get data from req body
+  //get oldPassword, NewPassword, confirmNewPassword
+  //validation
+  //update pwd in db
+  //send mail-Password Update
+  //return Response
+};
